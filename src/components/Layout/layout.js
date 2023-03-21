@@ -18,7 +18,7 @@ export const Layout = () => {
         <nav className={css.nav}>
           {!isAuthorized && (
             <div>
-              <button className={css.button} onClick={()=> navigate('sign-in')}>Sign In</button>
+              <button className={css.button} onClick={()=> navigate('login')}>Sign In</button>
               <button className={css.button} onClick={()=> navigate('register')}>Register</button>
             </div>      
           )}
