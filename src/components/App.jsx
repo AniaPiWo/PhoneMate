@@ -12,6 +12,7 @@ import { refreshUser } from 'redux/auth/auth.thunk';
 import { useAuth } from 'hook/useAuth/useAuth';
 import { ProtectedRoute } from './protectedRoute';
 import { RestrictedRoute } from './restrictedRoute';
+import { UserMenu } from './UserMenu/UserMenu';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -34,8 +35,11 @@ export const App = () => {
             path="/login" 
             element={<RestrictedRoute component={<SignIn />}/>} />
           <Route 
-            path="/contacts" 
+            path="/phonebook" 
             element={<ProtectedRoute component={<Phonebook/>} redirectTo={'/login'} />} />
+          <Route 
+            path="/my-account" 
+            element={<ProtectedRoute component={<UserMenu/>} redirectTo={'/login'} />} />
           <Route 
             path="/*" 
             element={<Fail />} />

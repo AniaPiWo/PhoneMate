@@ -24,6 +24,7 @@ export const Layout = () => {
           )}
           {isAuthorized && (
             <div>
+              <button className={css.button} onClick={()=> navigate('my-account')}>My account</button>
               <button className={css.button} onClick={handleSignOut}>Sign Out</button>
             </div>      
           )}
