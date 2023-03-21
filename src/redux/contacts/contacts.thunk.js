@@ -1,69 +1,64 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://640b422d81d8a32198df1101.mockapi.io/';
+//axios.defaults.baseURL = 'https://640b422d81d8a32198df1101.mockapi.io/';
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
 export const fetchContactsThunk = createAsyncThunk(
   'contacts/getContacts',
-  async (arg, thunkAPI) => {
-    console.log('thunkAPI:', thunkAPI);
+  async (_, thunkAPI) => {
+   const { contacts } = thunkAPI.getState()
+    if(contacts?.list.length !== 0) return []  
     try {
-      const response = await axios.get('/contacts');
-
+      const response = await axios.get("/contacts");
       return response.data;
-    } catch (e) {
-      throw new Error('Cant fetch contacts!');
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
 export const deleteSelectedContact = createAsyncThunk(
   'contacts/deleteContact',
-  async (id, { rejectWithValue }) => {
+  async (id, thunkAPI) => {
     try {
-      await axios.delete(`/contacts/${id}`);
+      const response = await axios.delete(`/contacts/${id}`);
 
-      return id;
-    } catch (e) {
-      return rejectWithValue(e);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
 
 export const addNewContact = createAsyncThunk(
   'contacts/addContact',
-  async ({ id, name, phone }, { rejectWithValue }) => {
+  async ({name, phone }, thunkAPI) => {
     try {
-      await axios.post('/contacts', { id, name, phone });
+      const response  = await axios.post('/contacts', {name, phone });
+      return response.data
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 
+export const patchContact = createAsyncThunk(
+  'contacts/patchContact',
+  async ({id , name, phone }, thunkAPI) => {
+    try {
+      const contact = {
+        id, name, phone 
+      };
+      await axios.patch('/contacts', contact);
       return {
         id,
         name,
         phone,
       };
-    } catch (e) {
-      return rejectWithValue(e);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
-//to test getContactsFail => getContacts(true);
-
-// msg to mentor - below is other ver of code for learning purposes only, pls ignore it :]
-/*ver1
-import {
-  getContactsAction,
-  getContactsSuccess,
-  getContactsFail,
-} from './contacts.slice';
-
-export const fetchContactsThunk = () => async (dispatch, getState) => {
-  dispatch(getContactsAction());
-  try {
-    const contacts = await getContacts(false);
-    console.log(contacts);
-    dispatch(getContactsSuccess(contacts));
-  } catch (e) {
-    dispatch(getContactsFail('There was a problem while fetching'));
-    throw new Error('Cant fetch contacts!');
-  }
-}; */
+ 

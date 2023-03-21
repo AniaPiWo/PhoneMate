@@ -29,14 +29,14 @@
   padding: 8px;
   border-radius: 3px;
   background-color: white;
-  border: 1px solid #33b5e5;
+  border: 1px solid #007bff;
   cursor: pointer;
   transition: 300ms;
   color: #35363a;
 }
 
 .deleteBtn:hover {
-  background-color: #0099cc;
+  background-color: #007bff;;
   border: 1px solid white;
   color: white;
 }
