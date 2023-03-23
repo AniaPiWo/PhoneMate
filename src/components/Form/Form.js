@@ -12,9 +12,9 @@ export const Form = () => {
     const form = event.target;
     const latestId = Math.max(...contacts.map(contact => contact.id));
     const nameValue = form.elements.text.value;
-    const phoneValue = form.elements.phone.value;
+    const numberValue = form.elements.number.value;
     dispatch(
-      addNewContact({ id: latestId + 1, name: nameValue, phone: phoneValue })
+      addNewContact({ id: latestId + 1, name: nameValue, number: numberValue })
     );
     form.reset();
   };
@@ -39,7 +39,7 @@ export const Form = () => {
         <input
           className={css.input}
           type="tel"
-          name="phone"
+          name="number"
           placeholder="Enter your phone number..."
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"

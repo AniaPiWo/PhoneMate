@@ -138,65 +138,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #35363a;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-.phonebookBox {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 3px solid white;
-  border-radius: 10px;
-  padding: 30px;
-  margin-top: 50px;
-}
-
-.title {
-  font-size: 30px;
-  margin-top: 30px;
-  margin-bottom: 20px;
-}
-
-.wrapper {
-  margin-top: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.home-title, .fail-title {
-  text-align: center;
-  font-weight: bold;
-  font-size: 30px;
-}
-
-.home-p, .fail-p {
-  text-align: center;
-  font-size: 24px;
-  color:#007bff;
-  margin-top: 50px;
-}
-
-.log-button {
-  background-color:  #007bff;
-  color: white;
-  border: 1px solid #007bff;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 250ms;
-}
-
-.log-button:hover {
-  color:  #007bff;
-  background-color: white;
 }

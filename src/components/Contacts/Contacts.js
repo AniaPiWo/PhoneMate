@@ -23,7 +23,7 @@ export const Contacts = () => {
         <li className={css.item} key={contact.id}>
           <div className={css.nameBox}>
             <span className={css.name}>{contact.name}</span>{' '}
-            <span>{contact.phone}</span>
+            <span>{contact.number}</span>
           </div>
           <button
             id={contact.id}

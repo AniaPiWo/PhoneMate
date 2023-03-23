@@ -14,7 +14,7 @@
     background-color:  #007bff;
     color: white;
     border: 1px solid #007bff;
-    padding: 10px 15px;
+    padding: 10px 150px;
     border-radius: 5px;
     cursor: pointer;
     transition: 250ms;
@@ -28,4 +28,11 @@
 .title {
     font-weight: bold;
     font-size: 22px;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
 }
