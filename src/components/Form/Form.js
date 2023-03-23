@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { addNewContact } from 'redux/contacts/contacts.thunk';
-import css from './Form.module.css';
 import { selectContactsList } from 'redux/selectors';
+import { Box, Input, FormLabel  } from '@chakra-ui/react'
 
 export const Form = () => {
   const dispatch = useDispatch();
@@ -20,11 +20,12 @@ export const Form = () => {
   };
 
   return (
-    <form className={css.form} onSubmit={onSubmit}>
-      <label className={css.label}>
+    <Box>
+    <form  onSubmit={onSubmit}>
+      <FormLabel >
         Name
-        <input
-          className={css.input}
+        <Input
+    
           type="text"
           name="text"
           placeholder="Enter your name..."
@@ -32,12 +33,12 @@ export const Form = () => {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         />
-      </label>
+      </FormLabel>
 
-      <label className={css.label}>
+      <FormLabel >
         Phone Number
-        <input
-          className={css.input}
+        <Input
+
           type="tel"
           name="number"
           placeholder="Enter your phone number..."
@@ -45,11 +46,12 @@ export const Form = () => {
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
         />
-      </label>
+           </FormLabel >
 
-      <button className={css.submit} type="submit">
+      <button type="submit">
         Add contact
       </button>
     </form>
+    </Box>
   );
 };

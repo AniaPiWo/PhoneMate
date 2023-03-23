@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { register } from "redux/auth/auth.thunk";
-import { Center,  Container, Button, Stack, Input,  FormControl,
+import { Center,  Container, Button, Stack, Input, /*  FormControl, */
     FormLabel } from '@chakra-ui/react'
 
 export const Register = () => {
@@ -22,7 +22,7 @@ export const Register = () => {
     return (
         <Center h="100vh">
             <Container>
-                <FormControl onSubmit={handleSubmit} autoComplete="off">
+                <form onSubmit={handleSubmit} autoComplete="off">
                     <Stack spacing={3}>
                         <FormLabel w="100%">Username
                             <Input type="text" name="name"/>
@@ -37,7 +37,7 @@ export const Register = () => {
                                 <Button mt={30} w={300} colorScheme='purple' variant='solid'  type="submit">Register</Button>
                             </Center>
                         </Stack>
-                    </FormControl>
+                    </form>
                 </Container>
             </Center>
 

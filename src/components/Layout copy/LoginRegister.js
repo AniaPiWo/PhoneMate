@@ -1,54 +1,21 @@
 import React from "react";
-import { useAuth } from "hook/useAuth/useAuth";
 import {Outlet, useNavigate } from 'react-router-dom'
 import { signOut } from "redux/auth/auth.thunk";
 import { useDispatch } from "react-redux";
-import { Button, ButtonGroup } from '@chakra-ui/react'
+import { Button, Flex } from '@chakra-ui/react'
 
-export const LoginRegisterComp = () => {
-  const { isAuthorized } = useAuth()
+export const LoggedInBtns = () => {
+
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const handleSignOut = () => dispatch(signOut())
 
   return (
-    <main>
-        <nav>
-          {!isAuthorized && (
-            <div className={css.login}>
-              <button onClick={()=> navigate('login')}>Sign In</button>
-              <button onClick={()=> navigate('register')}>Register</button>
-            </div>      
-          )}
-          {isAuthorized && (
-            <div>
-              <button  onClick={()=> navigate('my-account')}>My account</button>
-              <button  onClick={handleSignOut}>Sign Out</button>
-            </div>      
-          )}
-        </nav>
-      <Outlet/>
-    </main>
+
+            <Flex gap="30px">
+              <Button  colorScheme='purple' variant='solid'onClick={()=> navigate('my-account')}>My account</Button>
+              <Button colorScheme='purple' variant='solid' onClick={handleSignOut}>Sign Out</Button>
+            </Flex>     
+
   )
 };
-
-/* <main className={css.layoutBox}>
-<div className={css.header}>
-  <div className={css.title}>PhonebookApp</div>
-  <nav className={css.nav}>
-    {!isAuthorized && (
-      <div>
-        <button className={css.button} onClick={()=> navigate('login')}>Sign In</button>
-        <button className={css.button} onClick={()=> navigate('register')}>Register</button>
-      </div>      
-    )}
-    {isAuthorized && (
-      <div>
-        <button className={css.button} onClick={()=> navigate('my-account')}>My account</button>
-        <button className={css.button} onClick={handleSignOut}>Sign Out</button>
-      </div>      
-    )}
-  </nav>
-  </div>
-<Outlet/>
-</main> */

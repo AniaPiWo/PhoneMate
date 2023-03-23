@@ -1,8 +1,19 @@
-import css from './Section.module.css';
+import { Heading, Flex, Box } from '@chakra-ui/react'
+import { LoggedInBtns } from 'components/Layout copy/LoginRegister';
 
-export const Section = ({ children }) => (
-  <section className={css.section}>
-    <h2 className={css.title}>Phone Book</h2>
-    {children}
-  </section>
+
+export const Header = ({ children }) => (
+
+  <Flex flexDirection='row' alignItems='center' justifyContent='space-between' borderBottom="1px solid #282828" mb="30px" mx="50px" px={10}>
+    <Box display="flex" flexDirection='row' alignItems='center' justifyContent='center'>
+      <img width="50px" src={process.env.PUBLIC_URL + '/pblogo.png'} alt="Logo" />
+      <Heading w="100%" pl={5} py={7} as='h1' size='xl'>
+        PhoneMate
+      </Heading>
+    </Box>
+    <LoggedInBtns />
+
+      {children}
+  </Flex>
+
 );

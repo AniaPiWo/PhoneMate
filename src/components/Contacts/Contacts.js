@@ -1,7 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteSelectedContact } from 'redux/contacts/contacts.thunk';
-import css from './Contacts.module.css';
 import { selectContactsList, selectFilter } from 'redux/selectors';
+import { Button, Box, Text, List, ListItem, ListIcon } from '@chakra-ui/react'
+import { PhoneIcon } from '@chakra-ui/icons'
 
 export const Contacts = () => {
   const dispatch = useDispatch();
@@ -18,23 +19,27 @@ export const Contacts = () => {
   const onContactDelete = id => dispatch(deleteSelectedContact(id));
 
   return (
-    <ul className={css.list}>
+    <List >
+      <Box mx="50px">
       {visibleNames.map(contact => (
-        <li className={css.item} key={contact.id}>
-          <div className={css.nameBox}>
-            <span className={css.name}>{contact.name}</span>{' '}
-            <span>{contact.number}</span>
-          </div>
-          <button
-            id={contact.id}
-            className={css.deleteBtn}
-            type="button"
-            onClick={() => onContactDelete(contact.id)}
-          >
+        <ListItem key={contact.id}>
+          <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between">
+            <Box  display="flex" flexDirection="column" alignItems="start" justifyContent="space-between" my="10" >
+              <Text fontSize='24px' color='#805AD5'>{contact.name}</Text>{' '}
+              <Text fontSize='22px'>
+                <ListIcon as={PhoneIcon} />{contact.number}</Text>
+            </Box>
+           <Button
+              colorScheme='purple' variant='solid'  
+              type="button"
+              onClick={() => onContactDelete(contact.id)}
+            >
             Delete
-          </button>
-        </li>
+            </Button>
+          </Box>
+        </ListItem>
       ))}
-    </ul>
+      </Box>
+    </List>
   );
 };

@@ -12,7 +12,7 @@ import { refreshUser } from 'redux/auth/auth.thunk.js';
 import { useAuth } from 'hook/useAuth/useAuth.js';
 import { ProtectedRoute } from './protectedRoute.js';
 import { RestrictedRoute } from './restrictedRoute.js';
-import { UserMenu } from './UserMenu/UserMenu.js';
+import { MyAccount } from 'pages/my-account.js';
 import { Text, Center } from '@chakra-ui/react';
 
 export const App = () => {
@@ -40,7 +40,7 @@ export const App = () => {
             element={<ProtectedRoute component={<Phonebook/>} redirectTo={'/login'} />} />
           <Route 
             path="/my-account" 
-            element={<ProtectedRoute component={<UserMenu/>} redirectTo={'/login'} />} />
+            element={<ProtectedRoute component={<MyAccount/>} redirectTo={'/my-account'} />} />
           <Route 
             path="/*" 
             element={<Fail />} />
