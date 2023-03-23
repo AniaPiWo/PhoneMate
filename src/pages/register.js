@@ -1,6 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { register } from "redux/auth/auth.thunk";
+import { Center,  Container, Button, Stack, Input,  FormControl,
+    FormLabel } from '@chakra-ui/react'
 
 export const Register = () => {
 
@@ -14,24 +16,30 @@ export const Register = () => {
             password: form.elements.password.value,
             email: form.elements.email.value,
         }))
-        //console.log('form', form);
         form.reset()
     }
 
     return (
-        <div className="wrapper">
-            <form onSubmit={handleSubmit} autoComplete="off">
-                <label>Username
-                    <input type="text" name="name"/>
-                </label>
-                <label>Email
-                    <input type="email" name="email"/>
-                </label>
-                <label>Password
-                    <input type="password" name="password"/>
-                </label>
-                <button className="log-button" type="submit">Register</button>
-            </form>
-        </div>
+        <Center h="100vh">
+            <Container>
+                <FormControl onSubmit={handleSubmit} autoComplete="off">
+                    <Stack spacing={3}>
+                        <FormLabel w="100%">Username
+                            <Input type="text" name="name"/>
+                        </FormLabel>
+                        <FormLabel w="100%">Email
+                                <Input type="email" name="email" />
+                        </FormLabel>
+                        <FormLabel  w="100%">Password
+                                <Input type="password" name="password"/>
+                            </FormLabel>
+                            <Center>
+                                <Button mt={30} w={300} colorScheme='purple' variant='solid'  type="submit">Register</Button>
+                            </Center>
+                        </Stack>
+                    </FormControl>
+                </Container>
+            </Center>
+
     )
 }
