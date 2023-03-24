@@ -24,7 +24,13 @@ export const Phonebook = () => {
       <Filter />
       <Contacts />
     </GridItem>
-    <GridItem colSpan={3}></GridItem>
+    <GridItem colSpan={3}>
+      <Box>
+        <Center>
+          
+        </Center>
+      </Box>
+    </GridItem>
   </Grid>
 </Box>
   );
