@@ -19,7 +19,7 @@ export const SignIn = () => {
 
 
     return (
-        <Center h="100vh">
+        <Center height="100vh" maxW='600px' backgroundColor="white">
             <Container>
                 <form onSubmit={handleSubmit} autoComplete="off">
                     <Stack spacing={3}>

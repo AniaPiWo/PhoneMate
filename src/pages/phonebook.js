@@ -6,7 +6,7 @@ import { Contacts } from 'components/Contacts/Contacts';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContactsThunk } from 'redux/contacts/contacts.thunk';
-import { Box, Grid, GridItem } from '@chakra-ui/react';
+import {  Box } from '@chakra-ui/react';
 
 export const Phonebook = () => {
   const dispatch = useDispatch();
@@ -16,7 +16,18 @@ export const Phonebook = () => {
   });
 
   return (
-<Box>
+<Box height="100vh" maxW='600px' backgroundColor="white">
+  <Header />
+      <Box overflowY="auto">
+        <Form />
+        <Filter />
+        <Contacts />
+      </Box>
+</Box>
+  );
+};
+
+{/* <Box>
   <Header />
   <Grid templateColumns="repeat(4, 1fr)">
     <GridItem as="aside" colSpan={1} minHeight="100vh" borderRight="1px solid #282828" overflowY="visible">
@@ -25,13 +36,7 @@ export const Phonebook = () => {
       <Contacts />
     </GridItem>
     <GridItem colSpan={3}>
-      <Box>
-        <Center>
-          
-        </Center>
-      </Box>
+
     </GridItem>
   </Grid>
-</Box>
-  );
-};
+</Box> */}
