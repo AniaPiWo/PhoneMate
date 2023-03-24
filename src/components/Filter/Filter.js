@@ -12,18 +12,17 @@ export const Filter = () => {
   };
 
   return (
-    <FormControl id="search" display="flex" flexDirection="column" mx="50px">
+    <FormControl id="search" display="flex" flexDirection="column" mx="20px">
       <FormLabel fontSize='24px' my="10px" >
         Find contacts by name
         <Input
-        w="85%"
+        w="93%"
           type="text"
           name="filter"
           placeholder="Search..."
           onChange={handleChange}
         />
       </FormLabel>
-      {/*       <button className={css.filter_button}>Clear</button> */}
     </FormControl>
   );
 };

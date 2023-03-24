@@ -1,5 +1,5 @@
 import React from "react";
-import { LoginRegisterComp } from "components/Layout/LoginRegister";
+import { LoginRegister } from "components/LoginRegister/LoginRegister";
 import { Center, Flex } from "@chakra-ui/react";
 
 export const Landing = () => {
@@ -7,7 +7,7 @@ export const Landing = () => {
             <Center h="100vh">
                 <Flex direction="column" alignItems="center">
                     <img src={process.env.PUBLIC_URL + '/phonemate.png'} alt="Logo" />
-                    <LoginRegisterComp />
+                    <LoginRegister />
                 </Flex>
             </Center> 
     )

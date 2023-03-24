@@ -1,12 +1,12 @@
 import React from 'react';
-import { Header } from 'components/Section/Section';
+import { Header } from 'components/Header/Header';
 import { Form } from 'components/Form/Form';
 import { Filter } from 'components/Filter/Filter';
 import { Contacts } from 'components/Contacts/Contacts';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContactsThunk } from 'redux/contacts/contacts.thunk';
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Grid, GridItem } from '@chakra-ui/react';
 
 export const Phonebook = () => {
   const dispatch = useDispatch();
@@ -16,34 +16,16 @@ export const Phonebook = () => {
   });
 
   return (
-    <Box>
-    <Header />
-    <Flex>
-      
-      <Box w="30%" borderRight="1px solid #282828">
-        <Filter />
-        <Contacts />
-      </Box>
-      <Box w="70%">
-  
-      </Box>
-    </Flex>
-  </Box>
+<Box>
+  <Header />
+  <Grid templateColumns="repeat(4, 1fr)">
+    <GridItem as="aside" colSpan={1} minHeight="100vh" borderRight="1px solid #282828" overflowY="visible">
+      <Form />
+      <Filter />
+      <Contacts />
+    </GridItem>
+    <GridItem colSpan={3}></GridItem>
+  </Grid>
+</Box>
   );
 };
-
-{/* 
-
-      <Box w="25%">
-        <Filter />
-      </Box>
-
-
-<div>
-<Header />
-  <Container>
-  <Form />
-  <Filter />
-  <Contacts />
-  </Container>
-</div> */}

@@ -2,7 +2,7 @@ import React from "react";
 import {useNavigate } from 'react-router-dom'
 import { Button, Stack } from '@chakra-ui/react'
 
-export const LoginRegisterComp = () => {
+export const LoginRegister = () => {
   const navigate = useNavigate()
 
   return (

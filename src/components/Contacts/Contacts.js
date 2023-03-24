@@ -14,17 +14,20 @@ export const Contacts = () => {
       contact.name &&
       contact.name.toLowerCase().includes(filterByName.toLowerCase())
   );
-  //console.log(filterName);
-  //console.log(visibleNames);
+
   const onContactDelete = id => dispatch(deleteSelectedContact(id));
 
   return (
     <List >
-      <Box mx="50px">
+        {visibleNames.length === 0 ? (
+        <Text textAlign="center" fontSize="24px" color="#805AD5" my="5">
+          Your contact list is empty
+        </Text>) :
+      (<Box mx="30px">
       {visibleNames.map(contact => (
         <ListItem key={contact.id}>
           <Box display="flex" flexDirection="row" alignItems="center" justifyContent="space-between">
-            <Box  display="flex" flexDirection="column" alignItems="start" justifyContent="space-between" my="10" >
+            <Box  display="flex" flexDirection="column" alignItems="start" justifyContent="space-between" my="5" >
               <Text fontSize='24px' color='#805AD5'>{contact.name}</Text>{' '}
               <Text fontSize='22px'>
                 <ListIcon as={PhoneIcon} />{contact.number}</Text>
@@ -39,7 +42,8 @@ export const Contacts = () => {
           </Box>
         </ListItem>
       ))}
-      </Box>
+      </Box>)
+    }
     </List>
   );
 };

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-
+import { useNavigate } from 'react-router-dom';
 axios.defaults.baseURL = "https://connections-api.herokuapp.com";
 
 export const setAuthHeader = (token) => {
@@ -34,10 +34,11 @@ export const signIn = createAsyncThunk('auth/signIn', async(credentials, thunkAP
 })
 
 export const signOut = createAsyncThunk('auth/signOut', async(_, thunkAPI) => {
+    const navigate = useNavigate();
     try {
         await axios.post('/users/logout');
         clearAuthHeader()
-        
+        navigate('/');
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message)
     }
