@@ -21,8 +21,8 @@ export const Register = () => {
     }
 
     return (
-        <Center h="100vh">
-            <Container>
+        <Center height="100vh" maxW='600px' backgroundColor="white" >
+            <Container >
                 <FormControl>
                 <form onSubmit={handleSubmit} autoComplete="off">
                     <Stack spacing={3}>

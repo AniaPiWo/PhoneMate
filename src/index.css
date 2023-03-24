@@ -110,6 +110,10 @@ section {
 body {
   line-height: 1;
 }
+
+html {
+    background: #1c1c1c;
+}
 ol,
 ul {
   list-style: none;
@@ -138,9 +142,25 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #35363a;
+  background-color: #1c1c1c!important
+
 }
+
+body:first-child {
+  background-color: #1c1c1c!important
+  }
+
+html {
+  background: #1c1c1c!important
+}
+
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+svg {
+  font-size:20px;
 }

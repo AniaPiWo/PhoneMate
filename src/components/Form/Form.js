@@ -24,7 +24,7 @@ export const Form = () => {
     }
 
   return (
-      <Accordion defaultIndex={[0]} allowMultiple>
+      <Accordion  allowToggle>
         <AccordionItem backgroundColor='#805AD5'>
           <AccordionButton>
             <Box as="span" flex='1' textAlign='center' color='white' fontSize='24px'    backgroundColor='#805AD5'>

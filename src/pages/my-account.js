@@ -7,9 +7,9 @@ export const MyAccount = () => {
 
 
     return (
-    <Box>
+    <Box height="1000vh" maxW='600px' backgroundColor="white">
         <Header />
-        <Center h="100vh">    
+        <Center h="80vh">    
             <Container>
                 <UserMenu />
             </Container>
