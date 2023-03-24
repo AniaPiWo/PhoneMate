@@ -26,17 +26,3 @@ export const Phonebook = () => {
 </Box>
   );
 };
-
-{/* <Box>
-  <Header />
-  <Grid templateColumns="repeat(4, 1fr)">
-    <GridItem as="aside" colSpan={1} minHeight="100vh" borderRight="1px solid #282828" overflowY="visible">
-      <Form />
-      <Filter />
-      <Contacts />
-    </GridItem>
-    <GridItem colSpan={3}>
-
-    </GridItem>
-  </Grid>
-</Box> */}

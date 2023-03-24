@@ -9,6 +9,7 @@ import {
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
+  Avatar
 } from '@chakra-ui/react'
 
 export const Contacts = () => {
@@ -70,8 +71,11 @@ export const Contacts = () => {
               </AccordionButton>
               </h2>
               <AccordionPanel pb={4}>
+                <Box display="flex" gap="20px" alignItems="center">
+                <Avatar src='https://bit.ly/broken-link' />
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                   tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                </Box>
               </AccordionPanel>
             </AccordionItem>
           </Accordion>
