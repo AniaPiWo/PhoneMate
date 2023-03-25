@@ -1,8 +1,10 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useState } from 'react';
+import { useSelector, useDispatch} from 'react-redux';
 import { deleteSelectedContact } from 'redux/contacts/contacts.thunk';
 import { selectContactsList, selectFilter } from 'redux/selectors';
 import { Button, Box, Text, List, ListItem} from '@chakra-ui/react'
 import { BsFillTrash3Fill } from "react-icons/bs";
+import { SuccessDeleteAlert } from 'components/Alerts/successDeleteAlert';
 import {
   Accordion,
   AccordionItem,
@@ -16,6 +18,7 @@ export const Contacts = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContactsList);
   const filterByName = useSelector(selectFilter);
+  const [showAlert, setShowAlert] = useState(false);
 
   const visibleNames = contacts.filter(
     contact =>
@@ -23,16 +26,26 @@ export const Contacts = () => {
       contact.name.toLowerCase().includes(filterByName.toLowerCase())
   );
 
-  const onContactDelete = id => dispatch(deleteSelectedContact(id));
-  const onContactDetails = id => console.log(id);
+  
+  const onContactDelete = id => {
+    dispatch(deleteSelectedContact(id));
+    setShowAlert(true);
+    setTimeout(() => {
+      setShowAlert(false);
+    }, 3000);
+  };
+
 
   return (
     <List >
+      {showAlert && <SuccessDeleteAlert />}
         {visibleNames.length === 0 ? (
-  
+
         <Text textAlign="center" fontSize="24px" color="#805AD5" my="5">
           Your contact list is empty
-        </Text>) :
+        </Text>
+
+        ) :
       (<Box mx="20px">
       {visibleNames.map(contact => (
         <ListItem 
@@ -47,7 +60,7 @@ export const Contacts = () => {
               flexDirection="row" 
               alignItems="center" 
               justifyContent="space-between"
-              onClick={() => onContactDetails(contact.id)} >
+               >
               
               <Box>
                 <Text fontSize='24px' color='#805AD5'>Name: {contact.name}</Text>{' '}

@@ -7,8 +7,8 @@ export const LoginRegister = () => {
 
   return (
     <Stack direction='column' spacing={4} align='center'>
-              <Button w='300px' colorScheme='purple' variant='solid' onClick={()=> navigate('login')}>Sign In</Button>
-              <Button w='300px' colorScheme='purple' variant='solid' onClick={()=> navigate('register')}>Register</Button>
+              <Button w='300px' colorScheme='purple' variant='solid' onClick={()=> navigate('/login')}>Sign In</Button>
+              <Button w='300px' colorScheme='purple' variant='solid' onClick={()=> navigate('/register')}>Register</Button>
     </Stack>
   )
 };
