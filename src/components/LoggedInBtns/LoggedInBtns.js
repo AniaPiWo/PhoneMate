@@ -9,7 +9,11 @@ export const LoggedInBtns = () => {
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const handleSignOut = () => dispatch(signOut())
+  const handleSignOut = () => {
+    dispatch(signOut())
+    localStorage.clear()
+    navigate('/');
+  }
 
   return (
     <Flex gap="5px">
